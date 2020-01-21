@@ -1,18 +1,16 @@
 ---
 layout: collection
-title: "OSCPPrep"
+title: "OSCP Prep"
 permalink: "/oscp-prep/"
 ---
 
 {% for page in site.oscp-prep %}
 
 <a href="{{ page.url | prepend: site.baseurl }}">
-<h2>{{ page.title }}</h2>
+  <H2>{{page.title}}</H2><br>
+  <img src="{{page.picture}}">
 </a>
 
-<p class="post-excerpt">{{ page.headline | truncate: 160 }}</p>
-
-{{page.picture}}
 
 {% endfor %} 
 
