@@ -2,7 +2,7 @@
 title: "Hack The Box - Bashed"
 date: 2020-01-21
 tags: [oscp, htb, linux]
-category: oscp-htp-prep
+collection: oscp-htp-prep
 published: true
 ---
 
