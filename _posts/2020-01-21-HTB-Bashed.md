@@ -2,8 +2,6 @@
 title: "Hack The Box - Bashed"
 date: 2020-01-21
 tags: [oscp, htb, linux]
-header:
-    image: "/assets/htb-bashed/machine_info.png"
 published: true
 ---
 
