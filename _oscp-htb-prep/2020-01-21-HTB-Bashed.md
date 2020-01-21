@@ -5,7 +5,7 @@ tags: [oscp, htb, linux]
 collection: oscp-htp-prep
 published: true
 layout: single
-headline: "Hack The Box - Bashed"
+headline: "Custom webshell and bash terminal"
 picture: /assets/htb-bashed/machine_info.png
 ---
 

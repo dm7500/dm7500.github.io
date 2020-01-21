@@ -1,6 +1,12 @@
 ---
 title: "Hack The Box - Shocker"
+date: 2020-01-07
+tags: [oscp, htb, linux]
+collection: oscp-htp-prep
 published: true
+layout: single
+headline: "Playing with Shellshock"
+picture: /assets/htb-shocker/machine_info.png
 ---
 
 - [Machine Info](#machine-info)

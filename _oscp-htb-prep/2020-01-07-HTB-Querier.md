@@ -1,6 +1,12 @@
 ---
 title: "Hack The Box - Querier"
+date: 2020-01-07
+tags: [oscp, htb, windows, sql]
+collection: oscp-htp-prep
 published: true
+layout: single
+headline: "Fun with MSSQL"
+picture: /assets/htb-querier/machine_info.png
 ---
 
 - [Machine Info](#machine-info)
