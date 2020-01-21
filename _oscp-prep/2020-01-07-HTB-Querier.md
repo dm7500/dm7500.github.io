@@ -5,7 +5,7 @@ tags: [oscp, htb, windows, sql]
 collection: oscp-prep
 published: true
 layout: single
-headline: "Fun with MSSQL"
+headline: "Fun with MSSQL and Responder"
 picture: /assets/htb-querier/machine_info.png
 ---
 
