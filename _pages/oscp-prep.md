@@ -7,7 +7,7 @@ permalink: "/oscp-prep/"
 {% for page in site.oscp-prep %}
 
 <a href="{{ page.url }}">
-  <center>{{page.title}}</a> - {{page.headline}}</center>
+  {{page.title}}</a> - {{page.headline}}
   <img src="{{page.picture}}"><br>
   <hr>
 
