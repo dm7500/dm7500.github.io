@@ -295,9 +295,6 @@ defaults:
       comments: # true
       share: true
       related: true
-  # oscp-htp-prep
-    - scope:
-        path
 
 collections:
     oscp-htb-prep:
