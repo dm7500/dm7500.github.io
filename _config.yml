@@ -293,3 +293,8 @@ defaults:
       comments: # true
       share: true
       related: true
+
+collections:
+    OSCP/HTB prep:
+      output: true
+      permalink: /:collection/:path/

