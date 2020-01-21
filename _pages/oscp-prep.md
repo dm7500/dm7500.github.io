@@ -2,6 +2,7 @@
 layout: collection
 title: "OSCP Prep"
 permalink: "/oscp-prep/"
+entries_layout: grid
 ---
 
 {% for page in site.oscp-prep %}
