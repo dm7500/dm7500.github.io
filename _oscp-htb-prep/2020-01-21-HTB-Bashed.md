@@ -4,6 +4,7 @@ date: 2020-01-21
 tags: [oscp, htb, linux]
 collection: oscp-htp-prep
 published: true
+picture: /assets/htb-bashed/machine_info.png
 ---
 
 - [Machine Info](#machine-info)
