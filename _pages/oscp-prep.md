@@ -6,13 +6,11 @@ permalink: "/oscp-prep/"
 
 {% for page in site.oscp-prep %}
 
-<a href="{{ page.url | prepend: site.baseurl }}">
-  <h2>{{ page.title }}</h2>
-</a>
-
-{{page.image}}
+<a href="{{ page.url | prepend: site.baseurl }}"><h2>{{ page.title }}</h2></a>
 
 <p class="post-excerpt">{{ page.headline | truncate: 160 }}</p>
+
+{{page.image}}
 
 {% endfor %} 
 
