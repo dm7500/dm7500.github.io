@@ -2,7 +2,7 @@
 title: "Hack The Box - Bashed"
 date: 2020-01-21
 tags: [oscp, htb, linux]
-collection: oscp-htp-prep
+collection: oscp-prep
 published: true
 layout: single
 headline: "Custom webshell and bash terminal"

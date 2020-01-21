@@ -297,7 +297,7 @@ defaults:
       related: true
 
 collections:
-    oscp-htb-prep:
+    oscp-prep:
       output: true
       permalink: /:collection/:path/
       # collections_dir: oscp-htb-prep

@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "OSCP/HTB Prep"
-    url: /oscp-htb-prep
+  - title: "OSCP Prep"
+    url: /oscp-prep
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"

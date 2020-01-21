@@ -1,11 +1,11 @@
 ---
 layout: collection
-title: "OSCP/HTB Prep"
-permalink: "/oscp-htb-prep/"
+title: "OSCPPrep"
+permalink: "/oscp-prep/"
 ---
 
 <ul>
-  {% for page in site.oscp-htb-prep %}
+  {% for page in site.oscp-prep %}
     <li>
       <a href="{{ page.url }}">{{ page.title }}</a>
       - {{ page.headline }}
