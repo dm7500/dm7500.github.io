@@ -1,6 +1,6 @@
 ---
-layout: page
-title: "OSCP/HTB Prep Walk-Throughs"
+layout: collection
+title: "OSCP/HTB Prep"
 permalink: "/oscp-htb-prep/"
 ---
 
