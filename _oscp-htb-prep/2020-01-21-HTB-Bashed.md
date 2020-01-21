@@ -4,6 +4,7 @@ date: 2020-01-21
 tags: [oscp, htb, linux]
 collection: oscp-htp-prep
 published: true
+headline: "Hack The Box - Bashed"
 picture: /assets/htb-bashed/machine_info.png
 ---
 
