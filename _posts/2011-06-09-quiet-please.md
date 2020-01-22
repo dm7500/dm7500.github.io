@@ -3,6 +3,8 @@ title: "Quiet Please, H4xing in progress..."
 published: true
 ---
 
+>NOTE: This post was originally made on June 9th, 2011. It has been re-posted here for archiving.
+
 I commonly go to my local public library to study and use their free wi-fi. I normally can’t complain, it’s generally quiet, people leave you alone, and you mostly don’t have to deal with the hipsters who frequent the trendy coffee shops. On a recent visit, I got bored of studying, and started wondering what their infrastructure looked like.
 
 I assumed that they had a fairly complex system, with firewalls blocking off the critical internal computer systems from the public wi-fi, or at least independent VLAN’s for each user on wi-fi, thus preventing traffic sniffing and general mischief. I mean, this is a government funded organization after all, why wouldn’t they do it right and take the secure route? But then again, this is Miami-Dade County…

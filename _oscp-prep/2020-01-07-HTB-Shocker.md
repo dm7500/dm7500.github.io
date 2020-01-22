@@ -8,20 +8,6 @@ layout: single
 headline: "Playing with Shellshock"
 picture: /assets/htb-shocker/machine_info.png
 ---
-
-- [Machine Info](#machine-info)
-- [Enumeration](#enumeration)
-- [Initial Shell](#initial-shell)
-  - [Finding a script](#finding-a-script)
-  - [Testing the script with Burp Suite](#testing-the-script-with-burp-suite)
-  - [Testing for connectivity](#testing-for-connectivity)
-  - [Reverse shell](#reverse-shell)
-- [Privlege Escalation](#privlege-escalation)
-  - [Checking the sudoers file](#checking-the-sudoers-file)
-  - [Root Shell](#root-shell)
-
----
-
 ## Machine Info
 
 ![](/assets/htb-shocker/machine_info.png)

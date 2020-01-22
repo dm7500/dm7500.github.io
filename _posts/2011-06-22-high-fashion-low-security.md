@@ -3,6 +3,8 @@ title: "High Fashion, Low Security"
 published: true
 ---
 
+>NOTE: This post was originally made on June 22, 2011, in a unedited form. After discussions with law enforcement, I have redacted the content, and reposted it here for archiving.
+
 Recently, my girlfriend had an interview with a local fashion designer, and was telling me about it at work one day. I was bored, and being fashion illiterate, I Googled the designers name to look the designer up. Apparently, he’d done work for the Kardashians, Lindsay Lohan, and Paris Hilton among others; a pretty big name in the industry apparently.
 
 Then I found his websites actual Google entry. Suddenly, fashion seemed much more interesting to me…

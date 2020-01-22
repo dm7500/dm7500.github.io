@@ -8,20 +8,6 @@ layout: single
 headline: "Fun with MSSQL and Responder"
 picture: /assets/htb-querier/machine_info.png
 ---
-
-- [Machine Info](#machine-info)
-- [Enumeration](#enumeration)
-- [Initial Shell](#initial-shell)
-  - [Excel file](#excel-file)
-  - [Low-priv SQL user](#low-priv-sql-user)
-  - [Capturing user hash with `xp_dirtree` and `responder`](#capturing-user-hash-with-xpdirtree-and-responder)
-  - [Using `xp_cmdshell` to get a reverse shell](#using-xpcmdshell-to-get-a-reverse-shell)
-- [Privlege Escalation](#privlege-escalation)
-  - [Running `PowerUp.ps1` to enumerate](#running-powerupps1-to-enumerate)
-  - [PSEXEC for root shell](#psexec-for-root-shell)
-
----
-
 ## Machine Info
 
 ![](/assets/htb-querier/machine_info.png)
