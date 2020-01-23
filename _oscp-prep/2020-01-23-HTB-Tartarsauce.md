@@ -6,6 +6,7 @@ collection: oscp-prep
 published: true
 layout: single
 toc: true
+toc_label: Table of Contents
 headline: "WordPress RFI and fun with tar"
 picture: /assets/htb-tartarsauce/machine_info.png
 ---
