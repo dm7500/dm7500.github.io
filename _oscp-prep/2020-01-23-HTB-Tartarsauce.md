@@ -158,7 +158,7 @@ Now we just need to navigate to `http://10.10.10.88/webservices/wp/wp-content/pl
 
 > NOTE: Don't leave out the trailing `/` in the above command, or it will not work. It took me way too long to figure this out. Also, you can use `curl -s` like I did in the below example.
 
-![](/assets/htb-tartarsauce/wwwdata_revshell.png)
+<a href="/assets/htb-tartarsauce/wwwdata_revshell.png"><img src="/assets/htb-tartarsauce/wwwdata_revshell.png" width="95%"></a>
 
 ---
 
@@ -170,9 +170,9 @@ So now that we have a shell on the server, we can start enumeration for escalati
 
 ![](/assets/htb-tartarsauce/wwwdata_os_enum.png)
 
-We can see form some simple enumeration that we're in a shell was `www-data`, on a server running Ubuntu 16.04.4, with a kernel version of 4.15.0-041500-generic.
+We can see from some simple enumeration that we're in a shell was `www-data`, on a server running Ubuntu 16.04.4, with a kernel version of 4.15.0-041500-generic.
 
-If we do `sudo -l` to see the sudoers file for www-data, we get the below result.
+If we do `sudo -l` to see the sudoers file for `www-data`, we get the below result.
 
 ![](/assets/htb-tartarsauce/wwwdata_sudoers.png)
 
