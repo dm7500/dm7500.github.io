@@ -5,8 +5,7 @@ tags: [oscp, htb, linux]
 collection: oscp-prep
 published: true
 layout: single
-toc: true
-toc_label: Table of Contents
+classes: wide
 headline: "Custom webshell and bash terminal"
 picture: /assets/htb-bashed/machine_info.png
 ---

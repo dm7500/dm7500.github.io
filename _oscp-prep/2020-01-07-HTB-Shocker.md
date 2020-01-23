@@ -5,8 +5,7 @@ tags: [oscp, htb, linux]
 collection: oscp-prep
 published: true
 layout: single
-toc: true
-toc_label: Table of Contents
+classes: wide
 headline: "Playing with Shellshock"
 picture: /assets/htb-shocker/machine_info.png
 ---
