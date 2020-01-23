@@ -144,7 +144,7 @@ Interesting Finding(s):
 
 Troll much? So we're actually looking at version 1.5.3, NOT 2.3.10. Let's check Exploit-DB for vulnerabilities in this version.
 
-![](/assets/htb-tartarsauce/sspt_gwolle.png)
+<a href="/assets/htb-tartarsauce/sspt_gwolle.png"><img src="/assets/htb-tartarsauce/sspt_gwolle.png" width="95%"></a>
 
 Looks like there's an RFI known for 1.5.3!
 
