@@ -11,19 +11,6 @@ headline: "Custom webshell and bash terminal"
 picture: /assets/htb-bashed/machine_info.png
 ---
 
-- [Machine Info](#machine-info)
-- [Enumeration](#enumeration)
-- [Initial Shell](#initial-shell)
-  - [Enumerate with web shell](#enumerate-with-web-shell)
-- [Privlege Escalation](#privlege-escalation)
-  - [Sudoers file](#sudoers-file)
-  - [Upgrading the shell](#upgrading-the-shell)
-  - [Upgrading the shell (again!)](#upgrading-the-shell-again)
-  - [Poking the scripts folder](#poking-the-scripts-folder)
-  - [Adding our own exploit](#adding-our-own-exploit)
-
----
-
 ## Machine Info
 
 ![](/assets/htb-bashed/machine_info.png)
