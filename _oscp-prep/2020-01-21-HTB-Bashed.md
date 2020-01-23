@@ -6,6 +6,8 @@ collection: oscp-prep
 published: true
 layout: single
 classes: wide
+toc: true
+toc_label: Table of Contents
 headline: "Custom webshell and bash terminal"
 picture: /assets/htb-bashed/machine_info.png
 ---
