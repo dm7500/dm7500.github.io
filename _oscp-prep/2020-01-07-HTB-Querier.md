@@ -10,7 +10,6 @@ toc_label: Table of Contents
 headline: "Fun with MSSQL and Responder"
 picture: /assets/htb-querier/machine_info.png
 ---
-## Machine Info
 
 ![](/assets/htb-querier/machine_info.png)
 

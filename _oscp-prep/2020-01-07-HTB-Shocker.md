@@ -10,7 +10,6 @@ toc_label: Table of Contents
 headline: "Playing with Shellshock"
 picture: /assets/htb-shocker/machine_info.png
 ---
-## Machine Info
 
 ![](/assets/htb-shocker/machine_info.png)
 

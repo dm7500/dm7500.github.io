@@ -11,8 +11,6 @@ headline: "WordPress RFI and fun with tar"
 picture: /assets/htb-tartarsauce/machine_info.png
 ---
 
-## Machine Info
-
 ![](/assets/htb-tartarsauce/machine_info.png)
 
 ## Enumeration

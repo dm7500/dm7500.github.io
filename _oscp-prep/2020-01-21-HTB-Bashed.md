@@ -11,8 +11,6 @@ headline: "Custom webshell and bash terminal"
 picture: /assets/htb-bashed/machine_info.png
 ---
 
-## Machine Info
-
 ![](/assets/htb-bashed/machine_info.png)
 
 ## Enumeration
