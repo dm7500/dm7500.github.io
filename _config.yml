@@ -134,6 +134,9 @@ author:
     - label: "Hack The Box"
       icon: "fas fa-cube"
       url: "https://www.hackthebox.eu/home/users/profile/125657"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/dm7500/"
 
 # Site Footer
 footer:
