@@ -224,9 +224,9 @@ We also have a `.mysql_history` file. Let's take a look at it.
 
 ![](/assets/htb-tartarsauce/mysql_history.png)
 
-Nice. We have what looks like a password for MySQL access. HOwever, trying to login to MySQL with some common usernames fails.
+Nice. We have what looks like a password for MySQL access. However, trying to login to MySQL with some common usernames fails.
 
-![](/assets/htb-tartarsauce/mysql_history.png)
+![](/assets/htb-tartarsauce/mysql_failed_access.png)
 
 When we check the `/var/backups` directory, we can see 2 interesting files; `onuma_backup_error.txt` and `onuma_backup_test.txt`. Let's take a look at them.
 
