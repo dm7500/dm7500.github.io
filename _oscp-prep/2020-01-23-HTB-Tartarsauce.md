@@ -5,7 +5,7 @@ tags: [oscp, htb, linux]
 collection: oscp-prep
 published: true
 layout: single
-classes: wide
+toc: true
 headline: "WordPress RFI and fun with tar"
 picture: /assets/htb-tartarsauce/machine_info.png
 ---
