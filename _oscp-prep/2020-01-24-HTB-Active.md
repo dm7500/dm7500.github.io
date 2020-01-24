@@ -460,5 +460,5 @@ The command `impacket-psexec active.htb/administrator@10.10.10.100` will open up
 
 We can grab the flag from `C:\Users\Administrator\Desktop\root.txt`
 
-![](/assets/htb-active/root_proof.txt)
+![](/assets/htb-active/root_proof.png)
 
