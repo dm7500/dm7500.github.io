@@ -250,9 +250,7 @@ It seems that the `/Replication` share is available to us. Let's check what our 
 
 ---
 
-## Initial Shell
-
-### Groups.xml
+## Groups.xml
 
 Looks like we have `Groups.xml` in `\\10.10.10.100\Replication\active.htb\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\MACHINE\Preferences\Groups\`. This file is a gold-mine for credentials when working against older Active Directory, as it contains user data, including an encrypted password. Let's grab the file with a SMB session we can start with `smbclient \\\\10.10.10.100\\Replication`. We'll have to drill down to that path, and use `get Groups.xml` to download it locally.
 
@@ -274,7 +272,7 @@ GPPstillStandingStrong2k18
 
 So we now have a password for `active.htb/SVC_TGS` of `GPPstillStandingStrong2k18`! Now we can do some more enumeration with this account.
 
-### Enumerate with `nullinux`
+## Enumerate with `nullinux`
 
 We can use the [`nullinux`](https://github.com/m8r0wn/nullinux) tool to further enumerate via SMB, now that we have proper credentials. The command `nullinux -U 'active.htb\svc_tgs' -P 'GPPstillStandingStrong2k18' 10.10.10.100` will run the tool with our new credentials. Below is the output.
 
@@ -388,7 +386,7 @@ root@kali:/htb/10.10.10.100# nullinux -U 'active.htb\svc_tgs' -P 'GPPstillStandi
 
 It looks like the only real accounts on this box are `SVC_TGS` and `Administrator`.
 
-### Try for PSEXEC
+## Try for PSEXEC
 
 A common method of gaining a shell on Windows targets running SMB shares is to use PSExec, which is included as part of the [`impacket` kit](https://github.com/SecureAuthCorp/impacket). It provides a PowerShell shell, which we can use if the current user has any writable shares.
 
@@ -410,11 +408,11 @@ Password:
 
 Unfortunately, since none of the shares are writable as `svc_tgs`, we can't get a remote shell as this user.
 
-### Grabbing `user.txt`
+## Grabbing `user.txt`
 
 Although we don't have a shell, we now have read access to the `Users` share, which allows us to grab the `user.txt` file out of `//10.10.10.100/Users/svc_tgs/Desktop/user.txt`. You can use `smbclient -U active.htb/svc_tgs //10.10.10.100/Users` to start a session as the user.
 
-### Kerboroasting Administrator account
+## Kerboroasting Administrator account
 
 Since we have no remote shell, we need to see what other paths are still open to us. We can still use Kerberos to try to see if we can grab the Administrators SPN hash, which we can then crack with `hashcat`, and login. This attack is called Kerboraosting.
 
@@ -436,7 +434,7 @@ $krb5tgs$23$*Administrator$ACTIVE.HTB$active/CIFS~445*$2440d87a996a2f20731f0f307
 
 There we have it! Now we just need to save the hash (the entire thing!) to a local file so we can feed it to `hashcat`.
 
-### Cracking Administrator TGS hash
+## Cracking Administrator TGS hash
 
 We can now feed this into `hashcat` using the command `hashcat -m 13100 loot/admin_tgs_hash /usr/share/wordlists/rockyou.txt --force`.
 
@@ -448,11 +446,11 @@ A quick refresher on `hashcat` options:
 
 Within a minute, we get our results:
 
-![](/assets/htb-active/admin_tgs_hash_cracked.png)
+<a href="/assets/htb-active/admin_tgs_hash_cracked.png"><img src="/assets/htb-active/admin_tgs_hash_cracked.png" width="95%"></a>
 
 The password for `Administrator` is `Ticketmaster1968`. Time to login with PSEXEC and grab root.
 
-### Grabbing `root.txt`
+## Grabbing `root.txt`
 
 The command `impacket-psexec active.htb/administrator@10.10.10.100` will open up our admin shell
 
