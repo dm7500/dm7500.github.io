@@ -8,7 +8,7 @@ layout: single
 classes: wide
 toc: true
 toc_label: Table of Contents
-headline: "DNS Zone Transfer, SQLi, and playing with cron"
+headline: "DNS ZT, SQLi, and playing with cron"
 picture: /assets/htb-cronos/machine_info.png
 author_profile: true
 ---
