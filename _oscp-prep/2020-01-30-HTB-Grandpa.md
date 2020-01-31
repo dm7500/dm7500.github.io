@@ -15,7 +15,7 @@ author_profile: true
 
 ![](/assets/htb-grandpa/machine_info.png)
 
-> NOTE: This write-up is part of a set, with the other being Granny. Since the boxes are so similar, but the easy way to root is via Metasploit, I decided to do one with MSF, and one without. Grandpa will be done with Metaspliot, and Granny done without Metasploit, in order to better practice for the OSCP.
+> NOTE: This write-up is part of a set, with the other being [Granny](https://dm7500.github.io/oscp-prep/2020-01-31-HTB-Granny/). Since the boxes are so similar, but the easy way to root is via Metasploit, I decided to do one with MSF, and one without. Grandpa will be done with Metaspliot, and Granny done without Metasploit, in order to better practice for the OSCP.
 
 ## Enumeration
 
@@ -51,7 +51,7 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 Let's see what IIS exploits MSF has for us. Launch Metasploit with `msfconsole`, then type `search iis` to get a list of matching exploits.
 
-![](/assets/htb-grandpa/msf_search_iis.png)
+<a href="/assets/htb-grandpa/msf_search_iis.png"><img src="/assets/htb-grandpa/msf_search_iis.png" width="95%"></a>
 
 The `exploit/windows/iis/iis_webdav_upload_asp` options looks good, as it's rated Excellent. So we can type `use exploit/windows/iis/iis_webdav_upload_asp` to load it. The `options` command shows the options for the module. 
 

