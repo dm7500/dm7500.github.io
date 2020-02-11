@@ -69,7 +69,7 @@ To start, let's make an ASPX reverse shell with `msfvenom -p windows/powershell_
 
 In Burp, we can change the filename in the request to include a null-byte, as shown below. YOu can also see that it worked, and uploaded our file as `shell.aspx` instead of `shell.aspx.png`.
 
-![](/assets/htb-bounty/burp_nullbyte_good.png)
+<a href="/assets/htb-bounty/burp_nullbyte_good.png"><img src="/assets/htb-bounty/burp_nullbyte_good.png" width="95%"></a>
 
 However, when we try to pull up the shell via our browser, we get a server error. So this method works, but we still don't get code execution that we're looking for.
 
