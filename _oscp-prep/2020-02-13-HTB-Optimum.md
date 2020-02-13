@@ -68,7 +68,7 @@ Cookie: HFS_SID=0.609321830095723
 Upgrade-Insecure-Requests: 1
 ```
 
-![](/assets/htb-optimum/tcpdump_ping.png)
+> For some reason, I wasn't able to get `ping` to execute via this method without Powershell, which is why there is no image of the results. I know it does work however, as I had done it before on a previous takedown of this box.
 
 Now that we have code execution, let's see if we can do the same from PowerShell. If we can get RCE from Powershell, we have the ability to use a PS reverse shell, which is much more stable.
 
