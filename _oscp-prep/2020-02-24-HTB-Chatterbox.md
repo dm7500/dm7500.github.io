@@ -198,7 +198,7 @@ We can read `user.txt` from `C:\Users\Alfred\Desktop\user.txt`.
 
 ### PowerUp
 
-Now that we're solid on the target, let's enumerate with `PowerUp.ps1`. As before, we'll need to add the below command to the bottom of the script so that it auto-execute4s.
+Now that we're solid on the target, let's enumerate with `PowerUp.ps1`. As before, we'll need to add the below command to the bottom of the script so that it auto-executes.
 
 ```powershell
 Invoke-AllChecks
