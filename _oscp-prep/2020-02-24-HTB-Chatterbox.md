@@ -240,4 +240,4 @@ We can read `root.txt` from `C:\Users\Administrator\Desktop\root.txt`.
 
 ![](/assets/htb-chatterbox/root_proof.png)
 
-> Yes, I'm aware that there was another way to read `root.txt` via modifying permissions on the file directly with `icacls`, since `Alfread already owned the file. However, since this is part of my preparation for the OSCP, I need to get a full administrative shell for it to count.
+> Yes, I'm aware that there was another way to read `root.txt` via modifying permissions on the file directly with `icacls`, since `Alfred` already owned the file. However, since this is part of my preparation for the OSCP, I need to get a full administrative shell for it to count.
