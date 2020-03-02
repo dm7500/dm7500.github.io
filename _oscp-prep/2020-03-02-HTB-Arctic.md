@@ -181,7 +181,7 @@ As you can see above, this is a 64-bit Server 2008 R2 system, with no hotfixes a
 ![](/assets/htb-arctic/whoami_all.png)
 
 
-I've been using [JuicyPotato](https://ohpe.it/juicy-potato/) a lot lately, and I'll stick with it here, since the needed privilege is enabled. The process for JuicyPotato is as follows below. A more detailed breakdown can be found in some of my other recent Windows walkthroughs like [Bastard](https://dm7500.github.io/oscp-prep/2020-02-28-HTB-Bastard/) or [Bounty](https://dm7500.github.io/oscp-prep/2020-02-11-HTB-Bounty/).
+I've been using [JuicyPotato](https://ohpe.it/juicy-potato/) a lot lately, and I'll stick with it here, since the needed privilege is enabled, and we have our choice of exploits to use. The process for JuicyPotato is as follows below. A more detailed breakdown can be found in some of my other recent Windows walkthroughs like [Bastard](https://dm7500.github.io/oscp-prep/2020-02-28-HTB-Bastard/) or [Bounty](https://dm7500.github.io/oscp-prep/2020-02-11-HTB-Bounty/).
 
 #### JuicyPotato steps
 
